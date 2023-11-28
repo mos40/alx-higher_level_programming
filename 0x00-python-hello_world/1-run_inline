@@ -1,16 +1,2 @@
 #!/bin/bash
-
-# Check if the PYCODE env var is set
-if [ -z "$PYCODE" ]; then
-    echo "Error: PYCODE environment variable is not set."
-    exit 1
-fi
-
-# Python code must be save to a temp_file
-echo "$PYCODE" > temp_script.py
-
-# I ran the Python script
-python3 temp_script.py
-
-# I have just removed the temp_file
-rm temp_script.py
+python3 - c "$PYCODE"
