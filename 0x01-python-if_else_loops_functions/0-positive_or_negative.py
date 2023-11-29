@@ -6,8 +6,8 @@ number = random.randint(-10, 10)
 
 # Check and print the nature of the number
 if number < 0:
-    print("The number {} is negative.".format(number))
+    print("{} is positive.".format(number))
 elif number == 0:
-    print("The number {} is zero.".format(number))
+    print("{} is zero.".format(number))
 else:
-    print("The number {} is positive.".format(number))
+    print("{} is negative.".format(number))
