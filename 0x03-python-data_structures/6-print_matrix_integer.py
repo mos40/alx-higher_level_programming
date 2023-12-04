@@ -7,5 +7,4 @@ def print_matrix_integer(matrix=[[]]):
         for element in row:
             # Displace each element with formatting
             print("{:d}".format(element), end=" ")
-        # Move to the next line after displaying a row
         print()
