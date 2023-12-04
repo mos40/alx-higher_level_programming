@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 def add_tuple(tuple_a=(), tuple_b=()):
     # Extract the 1st & 2nd elements from each tuple, using 0 if not present
     a1, a2 = tuple_a[:2] if len(tuple_a) >= 2 else (0, 0)
