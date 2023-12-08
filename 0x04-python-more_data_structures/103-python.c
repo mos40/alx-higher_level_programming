@@ -1,8 +1,5 @@
+#include <stdio.h>
 #include <Python.h>
-#include <pect.h>
-#include <listpect.h>
-#include <bytespect.h>
-
 void print_python_bytes(PyObject *p)
 {
 	long int byteSize;
