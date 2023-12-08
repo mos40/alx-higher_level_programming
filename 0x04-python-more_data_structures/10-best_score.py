@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    # Check if the dictionary is empty
+    # Check if the dict is empty
     if not a_dictionary:
         return None
 
-    # Find the key with the maximum value
+    # Get the key with the maximum val
     best_key = max(a_dictionary, key=a_dictionary.get)
 
-    # Return the key with the highest integer value
+    # Bring back the key with the highest integer val
     return best_key
