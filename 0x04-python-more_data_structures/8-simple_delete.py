@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 def simple_delete(a_dictionary, key=""):
-    # Check if the key exists in the dictionary
+    # Test whether the key exists in the dictionary
     if key in a_dictionary:
-        # Delete the key-value pair if it exists
+        # Deletes the key-value pair if it existed
         del a_dictionary[key]
 
-    # Return the modified dictionary
+    # Bring back the modified dictionary
     return a_dictionary
