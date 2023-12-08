@@ -3,7 +3,7 @@ def weight_average(my_list=[]):
     if not my_list:
         return 0
 
-    total_score = sum(score * weight for score, weight in my_list)
-    total_weight = sum(weight for _, weight in my_list)
+    final_score = sum(score * weight for score, weight in my_list)
+    final_weight = sum(weight for _, weight in my_list)
 
-    return total_score / total_weight if total_weight != 0 else 0
+    return final_score / final_weight if final_weight != 0 else 0
