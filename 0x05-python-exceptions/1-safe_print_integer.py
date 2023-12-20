@@ -1,14 +1,19 @@
 #!/usr/bin/python3
+
 def safe_print_integer(value):
+    """Print an integer with "{:d}".format().
+
+    Args:
+        value (int): The value that may represent an integer
+
+    Returns:
+        If a TypeError or ValueError occurs - False otherwise
+        Otherwise - True if the value is successfully printed as integer
+    """
     try:
-        # Try to format the value as an integer
-        formatted_value = "{:d}".format(int(value))
-
-        # Print the formatted integer followed by a new line
-        print(formatted_value)
-
-        # Return True indicating successful printing
-        return True
-    except (ValueError, TypeError):
-        # Catch exceptions for invalid conversions or types
-        return False
+        formatted_interger = "{:d}".format(int(value))
+        print(formatted_integer)
+        # print("{:d}".format(value)) #
+        return (True)
+    except (TypeError, ValueError):
+        return (False)
