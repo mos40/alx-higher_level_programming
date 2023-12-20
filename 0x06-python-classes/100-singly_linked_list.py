@@ -1,24 +1,24 @@
 #!/usr/bin/python3
 
-"""Define a class Square."""
+"""Define classes for a singly-linked list."""
 
 
 class Node:
-    """Represent a square."""
+    """Represent a node in a singly-linked list."""
 
-    def __init__(self, data, position=None):
-        """Initialize a new square.
+    def __init__(self, data, next_node=None):
+        """Initialize a new Node.
 
         Args:
-            data (int): The data of the new square.
-            position (int, int): The position of the new square.
+            data (int): The data of the new Node.
+            next_node (Node): The next node of the new Node.
         """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """Get/set the current data data of the square."""
+        """Get/set the data of the Node."""
         return (self.__data)
 
     @data.setter
@@ -28,15 +28,15 @@ class Node:
         self.__data = value
 
     @property
-    def position(self):
-        """Get/set the position of the Node."""
-        return (self.__position)
+    def next_node(self):
+        """Get/set the next_node of the Node."""
+        return (self.__next_node)
 
-    @position.setter
-    def position(self, value):
+    @next_node.setter
+    def next_node(self, value):
         if not isinstance(value, Node) and value is not None:
-            raise TypeError("position must be a Node object")
-        self.__position = value
+            raise TypeError("next_node must be a Node object")
+        self.__next_node = value
 
 
 class SinglyLinkedList:
@@ -57,24 +57,24 @@ class SinglyLinkedList:
         """
         new = Node(value)
         if self.__head is None:
-            new.position = None
+            new.next_node = None
             self.__head = new
         elif self.__head.data > value:
-            new.position = self.__head
+            new.next_node = self.__head
             self.__head = new
         else:
             tmp = self.__head
-            while (tmp.position is not None and
-                    tmp.position.data < value):
-                tmp = tmp.position
-            new.position = tmp.position
-            tmp.position = new
+            while (tmp.next_node is not None and
+                    tmp.next_node.data < value):
+                tmp = tmp.next_node
+            new.next_node = tmp.next_node
+            tmp.next_node = new
 
     def __str__(self):
-        """Define the print() representation of a Square."""
+        """Define the print() representation of a SinglyLinkedList."""
         values = []
         tmp = self.__head
         while tmp is not None:
             values.append(str(tmp.data))
-            tmp = tmp.position
+            tmp = tmp.next_node
         return ('\n'.join(values))
