@@ -6,26 +6,26 @@
 class Node:
     """Represent a square."""
 
-    def __init__(self, size, position=None):
+    def __init__(self, data, position=None):
         """Initialize a new square.
 
         Args:
-            size (int): The size of the new square.
+            data (int): The data of the new square.
             position (int, int): The position of the new square.
         """
-        self._size = size
-        self._position = position
+        self.data = data
+        self.next_node = next_node
 
     @property
-    def size(self):
-        """Get/set the current size size of the square."""
-        return (self.__size)
+    def data(self):
+        """Get/set the current data data of the square."""
+        return (self.__data)
 
-    @size.setter
-    def size(self, value):
+    @data.setter
+    def data(self, value):
         if not isinstance(value, int):
-            raise TypeError("size must be an integer")
-        self.__size = value
+            raise TypeError("data must be an integer")
+        self.__data = value
 
     @property
     def position(self):
@@ -59,13 +59,13 @@ class SinglyLinkedList:
         if self.__head is None:
             new.position = None
             self.__head = new
-        elif self.__head.size > value:
+        elif self.__head.data > value:
             new.position = self.__head
             self.__head = new
         else:
             tmp = self.__head
             while (tmp.position is not None and
-                    tmp.position.size < value):
+                    tmp.position.data < value):
                 tmp = tmp.position
             new.position = tmp.position
             tmp.position = new
@@ -75,6 +75,6 @@ class SinglyLinkedList:
         values = []
         tmp = self.__head
         while tmp is not None:
-            values.append(str(tmp.size))
+            values.append(str(tmp.data))
             tmp = tmp.position
         return ('\n'.join(values))
