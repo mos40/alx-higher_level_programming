@@ -1,10 +1,7 @@
 #!/usr/bin/python3
+"""Defines a Rectangle class."""
+
 
 class Rectangle:
-    """Empty class definition for a rectangle."""
-    pass
-
-
-if __name__ == "__main__":
-    # Test or use the Rectangle class as needed
+    """Represent a rectangle."""
     pass
