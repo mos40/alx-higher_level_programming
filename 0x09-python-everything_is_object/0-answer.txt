@@ -1,1 +1,6 @@
+#!/usr/bin/python3
+#obj =  # Your object here
+#obj_type = type(obj)
+#print(obj_type)
+
 type
