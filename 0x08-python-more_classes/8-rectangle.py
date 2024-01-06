@@ -3,7 +3,7 @@
 
 
 class Rectangle:
-    """Represent a rectangle.
+    """Represents a rectangle.
 
     Attributes:
         number_of_instances (int): The number of Rectangle instances.
@@ -21,10 +21,8 @@ class Rectangle:
             height (int): The height of the new rectangle.
         """
         type(self).number_of_instances += 1
-        self._width = 0
-        self._height = 0
-        self.width = width
-        self.height = height
+        self._width = width
+        self._height = height
 
     @property
     def width(self):
@@ -33,7 +31,10 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        self._validate_dimension(value, "width")
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
         self._width = value
 
     @property
@@ -43,15 +44,11 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        self._validate_dimension(value, "height")
-        self._height = value
-
-    def _validate_dimension(self, value, dimension):
-        """Validate if the given value is a valid dimension."""
         if not isinstance(value, int):
-            raise TypeError(f"{dimension} must be an integer")
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError(f"{dimension} must be >= 0")
+            raise ValueError("height must be >= 0")
+        self._height = value
 
     def area(self):
         """Return the area of the Rectangle."""
@@ -71,11 +68,12 @@ class Rectangle:
             rect_1 (Rectangle): The first Rectangle.
             rect_2 (Rectangle): The second Rectangle.
         Raises:
-            TypeError: If either of rect_1 or rect_2 is not a Rectangle.
+            TypeError: If either rect_1 or rect_2 is not a Rectangle.
         """
-        if not isinstance(rect_1, Rectangle)
-        or not isinstance(rect_2, Rectangle):
-            raise TypeError("Both rect_1 and rect_2 must be instances of Rect")
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
         return rect_1 if rect_1.area() >= rect_2.area() else rect_2
 
     def __str__(self):
@@ -85,7 +83,10 @@ class Rectangle:
         """
         if self._width == 0 or self._height == 0:
             return ""
-        return (str(self.print_symbol) * self._width + "\n") * self._height
+        
+        rect = [str(self.print_symbol) * self._width + "\n"] * (self._height - 1)
+        rect.append(str(self.print_symbol) * self._width)
+        return "".join(rect)
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
