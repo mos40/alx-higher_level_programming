@@ -1,0 +1,15 @@
+# Test cases for my_module.py
+
+# Testing MyClass initialization
+>>> obj = MyClass(42)
+>>> obj.attribute1
+42
+
+# Testing my_function
+>>> my_function()
+'Function executed successfully.'
+
+# Testing MyClass my_function
+>>> obj.my_function()
+'Method executed successfully.'
+
