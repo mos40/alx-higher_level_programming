@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Defines a base model class."""
 import json
 import csv
@@ -16,17 +17,17 @@ class Base:
 
     __obj_counter = 0
 
-    def __init__(self, identifier=None):
+    def __init__(self, id=None):
         """Initialize a new Base.
 
         Args:
-            identifier (int): The identifier of the new Base.
+            id (int): The id of the new Base.
         """
-        if identifier is not None:
-            self.identifier = identifier
+        if id is not None:
+            self.id = id
         else:
             Base.__obj_counter += 1
-            self.identifier = Base.__obj_counter
+            self.id = Base.__obj_counter
 
     @staticmethod
     def to_json_string(list_of_dicts):
