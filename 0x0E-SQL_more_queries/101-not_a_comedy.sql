@@ -1,16 +1,11 @@
 -- Task: Import the database dump from hbtn_0d_tvshows and list shows without the genre Comedy
-
--- Use the hbtn_0d_tvshows database
-USE hbtn_0d_tvshows;
-
--- Select shows that do not have the genre Comedy
-SELECT tv_shows.title
+SELECT title
 FROM tv_shows
-WHERE tv_shows.id NOT IN (
-    SELECT DISTINCT tv_shows.id
-    FROM tv_shows
-    JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
-    JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-    WHERE tv_genres.name = 'Comedy'
-)
-ORDER BY tv_shows.title;
+WHERE title NOT IN
+(SELECT title
+FROM tv_shows
+LEFT JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
+LEFT JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
+WHERE tv_genres.name = 'Comedy')
+GROUP BY title
+ORDER BY title ASC;
